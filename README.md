@@ -165,9 +165,7 @@ Amazon CloudWatch was configured with 4 alarms for both ASGs:
 
 Amazon SNS was integrated with the Auto Scaling Groups to send real-time email notifications for scaling events such as instance launches and terminations.
 
-The email below shows an actual SNS notification received when the `webserver_ASG` terminated an instance in response to the CloudWatch low-CPU alarm firing and reducing the desired capacity from 2 to 1.
-
-![SNS Email Notification](screenshots/Email_SS_by_SNS.png)
+![SNS Email Notification](<screenshots/Email SS by SNS.png>)
 
 ---
 
@@ -175,7 +173,7 @@ The email below shows an actual SNS notification received when the `webserver_AS
 
 ### Frontend
 
-The frontend is a single-page HTML/CSS application served by Nginx on the web tier. It uses the Poppins and Playfair Display fonts with a custom color palette inspired by Indian cuisine (saffron, turmeric, crimson).
+The frontend is a single-page HTML/CSS application served by Nginx on the web tier. It uses the Poppins and Playfair Display fonts with a custom color palette inspired by Indian cuisine.
 
 **CSS Variables:**
 ```css
@@ -186,15 +184,15 @@ The frontend is a single-page HTML/CSS application served by Nginx on the web ti
 --charcoal: #1A1A2E
 ```
 
-![HTML Code - Part 1](screenshots/html_code_1.png)
+![HTML Code - Part 1](<screenshots/html code 1.png>)
 
-![HTML Code - Part 2](screenshots/html_code_2.png)
+![HTML Code - Part 2](<screenshots/html code 2.png>)
 
 ---
 
 ### Website - Home Page
 
-![Home Page](screenshots/home_page_of_web.png)
+![Home Page](<screenshots/home page of web.png>)
 
 ---
 
@@ -202,7 +200,7 @@ The frontend is a single-page HTML/CSS application served by Nginx on the web ti
 
 The menu page allows filtering by category: All, Veg, Non-Veg, Biryani, and Desserts.
 
-![Food Type Page](screenshots/Food_Type_page.png)
+![Food Type Page](<screenshots/Food Type page.png>)
 
 ---
 
@@ -210,25 +208,25 @@ The menu page allows filtering by category: All, Veg, Non-Veg, Biryani, and Dess
 
 The order form collects customer name, phone number, email, selected dish, quantity, spice level, delivery address, and special instructions.
 
-![Order Page](screenshots/Order_page.png)
+![Order Page](<screenshots/Order page.png>)
 
 ---
 
 ### Backend - confirm.php
 
-The PHP backend script (`confirm.php`) runs on the application tier (Tier 2) and handles order confirmation. It connects to the RDS MySQL database on Tier 3 via PDO.
+The PHP backend script (`confirm.php`) runs on the application tier and handles order confirmation. It connects to the RDS MySQL database via PDO.
 
 Key features:
 - Strict type enforcement (`declare(strict_types=1)`)
 - CORS headers configured for API access
 - Only accepts HTTP POST requests (returns 405 for others)
-- Input sanitization using `mb_substr` + `strip_tags`
+- Input sanitization using `mb_substr` and `strip_tags`
 - Environment variable-based database credentials with fallback defaults
 - Validates required fields before processing
 
-![confirm.php - Part 1](screenshots/Confirm_php1.png)
+![confirm.php - Part 1](screenshots/Confirm.php1.png)
 
-![confirm.php - Part 2](screenshots/Confirm_php2.png)
+![confirm.php - Part 2](screenshots/Confirm.php2.png)
 
 ---
 
@@ -237,7 +235,7 @@ Key features:
 - Successfully deployed a production-like 3-tier architecture on AWS
 - Implemented secure network isolation using custom VPC, subnets, and security group chaining
 - Configured auto scaling with CloudWatch metric-based alarms for both tiers
-- Set up dual ALBs (external + internal) for secure traffic routing
+- Set up dual ALBs (external and internal) for secure traffic routing
 - Integrated SNS for real-time infrastructure event notifications
 - Built a complete LEMP stack application with a PHP backend connecting to RDS over PDO
 - Created reusable AMIs and launch templates for reproducible instance provisioning
